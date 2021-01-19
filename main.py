@@ -39,7 +39,7 @@ def collect():
   cash = 0
   print("The total cost is:")
   sleep(1)
-  print(total_cost)
+  print(f"£{total_cost}")
   sleep(1)
   print("Are you paying with cash or card?")
   pay_option = input().lower()
@@ -54,29 +54,32 @@ def collect():
     sleep(1)
     print("and '20' to pay a £20 note")
     cash = 0
+    print("Please enter notes:")
+    change = cash - total_cost
     not_paid = cash < total_cost
     while not_paid:
       note = int(input())
-      if note == "10":
+      if note == 10:
         cash = cash + 10
-      elif note == "20":
+        print(f"Total paid: {cash}")
+      elif note == 20:
         cash = cash + 20
+        print(f"Total paid: {cash}")
+      elif cash >= total_cost:
+        print(f"There is £{change} change")
+        not_paid = False
       else:
         print("Note invalid")
-    change = cash - total_cost
-    print(f"There is £{change} change")
 
 def issue_ticket():
+  sleep(2)
   print(f"Lead booker's surname: {surname}")
-  print(f"Number of adult tickets purchased: {adult_total}")
-  print(f"Number of child tickets purchased: {child_total}")
-  print(f"Number of senior tickets purchased: {senior_total}")
+  sleep(1)
   if a == True:
-    print("Printing car pass")
-  date = datetime.datetime.today().strftime ('%d%m%Y')
+    print("Printing car pass...")
+    sleep(3)
+  date = datetime.datetime.today().strftime ('%d/%m/%Y')
   print(f"Ticket issued on {date}")
-
-
 
 total_t_cost = entrance()
 total_w_cost = wristband()
@@ -85,3 +88,8 @@ surname = lead_surname()
 a = parking()
 collect()
 issue_ticket()
+
+sleep(2)
+print("Thank you for coming to Copington Adventure Theme Park today!")
+sleep(2)
+print("We hope you have a fun time here!")
