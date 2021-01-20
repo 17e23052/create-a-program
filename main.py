@@ -24,6 +24,9 @@ def wristband():
 def lead_surname():
   print("What is the lead booker's surname?")
   surname = input()
+  while surname == "":
+    print("Please enter your surname:")
+    surname = input()
   return surname
 
 def parking():
@@ -65,10 +68,10 @@ def collect():
       note = int(input())
       if note == 10:
         cash = cash + 10
-        print(f"Total paid: {cash}")
+        print(f"Total paid: £{cash}")
       elif note == 20:
         cash = cash + 20
-        print(f"Total paid: {cash}")
+        print(f"Total paid: £{cash}")
       else:
         print("Note invalid")
 
@@ -81,10 +84,9 @@ def issue_ticket():
 
 def carpass():
   if a == True:
-    date = datetime.datetime.today().strftime ('%d/%m')
-    print("Here is your car pass for Copington Adventure")
-    print(f"Theme Park, issued on {date}")
     sleep(2)
+    print("Here is your car pass for Copington Adventure")
+    print(f"Theme Park, issued for ticketholder {surname}")
     
 total_t_cost = entrance()
 total_w_cost = wristband()
