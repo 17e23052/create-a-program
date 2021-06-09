@@ -63,6 +63,7 @@ def collect():
       if cash >= total_cost:
         change = cash - total_cost
         print(f"There is £{change} change")
+        print("Please wait...")
         not_paid = False
         break
       note = int(input())
@@ -98,6 +99,7 @@ issue_ticket()
 carpass()
 
 sleep(2)
+print("")
 print("Thank you for coming to Copington Adventure Theme Park today!")
 sleep(2)
 print("We hope you have a fun time here!")
